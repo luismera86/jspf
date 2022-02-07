@@ -12,15 +12,22 @@
 .estructura{
     background-image: url('../img/fondo.svg');
     background-size: cover;
-    border-radius: 3rem;
+    border-radius: 2rem;
     color: #445595;
     font-family: 'Anton', sans-serif;
     height: 35rem;
+    border: solid 0.1rem #445595;
 }
 
 .titulo{
     font-size: 3rem;
     text-shadow: 0px 4px 9px rgba(0, 0, 0, 0.25);
+}
+.subTitulos{
+    font-size: 1.5rem;
+    font-weight: 800;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 0px 4px 9px rgba(0, 0, 0, 0.25)
 }
 .btn-inicio{
     background-color: #6E7DAF;
@@ -28,9 +35,29 @@
     font-weight: 800;
     font-size: 1rem;
     color: #ffff;
-    border-radius: 40px;
+    border-radius: 1rem;
     padding: 0.5rem;
     text-shadow: 0px 4px 9px rgba(0, 0, 0, 0.25);
     margin-left: 3rem;
     width: 40rem;
+}
+.btn-respuesta{
+    background-color: #6E7DAF;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    color: #ffff;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    text-shadow: 0px 4px 9px rgba(0, 0, 0, 0.25);
+    margin-left: 3rem;
+    width: 20rem;
+}
+
+.cuadroRespuesta{
+    background-color: #ffff;
+    width: 20rem;
+    border-radius: 20PX;
+    height: 22rem;
+    border: solid 0.1rem #445595;
 }
