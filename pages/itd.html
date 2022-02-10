@@ -15,13 +15,27 @@
     <div class=" container mt-5 mb-5 estructura">
         <div class="row col">
             <div class="col text-center align-items-center">
-                <h2 class="titulo mt-3">CALCULO PARA TABLEROS ELECTRICOS</h2>
+                <h2 class="titulo mt-3">CALCULAR INTERRUPTOR TERMOMAGNETICO PRINCIPAL</h2>
             </div>
         </div>
-        <div class=" container d-flex mt-5 flex-column align-items-center">
-            <button class="btn-inicio mt-5">CALCULAR INTERRUPTOR TERMOMAGNETICO PRINCIPAL</button>
-            <button class="btn-inicio mt-5">CALCULAR INTERRUPTOR DIFERENCIAL PRINCIPAL</button>
-            <button class="btn-inicio mt-5">CALCULAR NTERRUPTOR TERMOMAGNETICO POR CIRCUITO</button>
+        <div class="row container mt-4">
+            <div class="row col-6">
+                <div class=" container mt-5">
+                    <h2 class="subTitulos">¿QUE TIPO DE INSTALACION POSSE EL DOMICILIO?</h2>
+                    <button id="trifasica" class="btn-respuesta mt-2">TRIFASICA</button>
+                    <button id="monofasica" class="btn-respuesta mt-4">MONOFASICA</button>
+                    <div class=" container  d-flex flex-row mt-4 text-center justify-content-center">
+                        <div class="row">
+                            <h4>¿CUANTOS CIRCUITOS TIENE EL TABLERO?</h4>
+                            <button class="btn-suma col-4">+</button>
+                            <h2 class="col-4">0</h2>
+                            <button class="btn-suma col-4">-</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="resultado" class="resultado row col-6 cuadroRespuesta mt-5 w-50 ms-2">
+            </div>
         </div>
     </div>
 
