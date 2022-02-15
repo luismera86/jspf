@@ -12,13 +12,18 @@ let circuitos = 0;
 const sumaCircuitos = () => {
     ++circuitos
     nCircuitos.innerText = circuitos;
+    if (circuitos > 0 ) {
+        circuitoResta.disabled = false;
 }
-
+}
 circuitoSuma.onclick = sumaCircuitos;
 
 const restaCircuitos = () => {
         --circuitos
         nCircuitos.innerText = circuitos;
+        if(circuitos <= 0) {
+            circuitoResta.disabled = true;
+        }
 }
 
 circuitoResta.onclick = restaCircuitos;

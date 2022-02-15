@@ -15,16 +15,102 @@
     <div class=" container mt-5 mb-5 estructura">
         <div class="row col">
             <div class="col text-center align-items-center">
-                <h2 class="titulo mt-3">CALCULO PARA TABLEROS ELECTRICOS</h2>
+                <h2 class="titulo mt-3">CALCULAR INTERRUPTOR TERMOMAGNETICO PRINCIPAL</h2>
             </div>
-        </div>
-        <div class=" container d-flex mt-5 flex-column align-items-center">
-            <button class="btn-inicio mt-5">CALCULAR INTERRUPTOR TERMOMAGNETICO PRINCIPAL</button>
-            <button class="btn-inicio mt-5">CALCULAR INTERRUPTOR DIFERENCIAL PRINCIPAL</button>
-            <button class="btn-inicio mt-5">CALCULAR NTERRUPTOR TERMOMAGNETICO POR CIRCUITO</button>
+        </div class=" d-flex flex-row">
+        <!-- Formulario -->
+            <div class=" d-flex flex-row justify-content-around">
+                <form class=" mt-5 me-5" action="">
+                    <div>
+                        <label for="">Circuitos de Iluminación</label>
+                        <select class="mt-3" name="circuitos" id="circuitosIluminación">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                    </select>
+                    </div>
+                    <div>
+                        <label for="">Circuitos de Tomacorrientes</label>
+                        <select class="mt-3" name="circuitos" id="ircuitosTomacorrientes">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                    </select>
+                    </div>
+                    <div>
+                        <label for="">Circuitos de Tomacorrientes Especiales</label>
+                        <select class="mt-3" name="circuitos" id="circuitosTomacorrientesEspeciales">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                    </select>
+                    </div>
+                    <button id="btnRespuesta" class="btn-respuesta mt-3">Resultado</button>
+                </form>
+                <!-- Cuadro de resultados -->
+            <div class="row col-6 cuadroRespuesta mt-5 w-50 ms-4 text-center">
+                <h5 id="resultado1" class="mt-2">Debe instalar <b class="cIluminacion"></b> Interruptoes Termomagnético Bipolar 10AMP</h5>
+                <h5 id="resultado2" class="mt-2">Debe instalar <b class="cTomaccorrientes"></b> Interruptoes Termomagnético Bipolar 16AMP</h5>
+                <h5 id="resultado3" class="mt-2">Debe instalar <b class="cTomacorrientesEsp"></b> Interruptoes Termomagnético Bipolar 20AMP</h5>
+            </div>
+            
+            </div>
+            
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="../js/itc.js"></script>
 </body>
 </html>
