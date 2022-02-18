@@ -1,18 +1,17 @@
 // Botones
-let btnImprimir = document.getElementById('btnImprimir');
-let btnGuardar = document.getElementById('btn-guardar');
-let btnItc = document.getElementById('btnItc');
-
-// Variables globales
+const btnImprimir = document.getElementById('btnImprimir');
+const btnGuardar = document.getElementById('btn-guardar');
+const btnItpGuardar = document.getElementById('btnItpGuardar');
 const monofasica = document.getElementById('monofasica')
 const trifasica = document.getElementById('trifasica')
-const resultado = document.querySelector('.resultado');
 
-let nombreProyecto = '';
+
+// Variables globales
+
+const resultado = document.querySelector('.resultado');
 
 
 // Registro de datos en LocalSotorage (Simulando una base de datos)
-
 
 function registrar() {
     let nombreProyecto = document.getElementById('nombreProyecto').value;
@@ -29,43 +28,51 @@ function registrar() {
 }
 
 
-
 // Inserta los Nombres de los proyectos en una lista 
 
 for (let i = 0; i < localStorage.length; i++) {
         key = localStorage.key(i);
-        valor = localStorage.getItem(key);
+        valor = JSON.parse(localStorage.getItem(key))
     let menuProyectos = document.getElementById('menuProyectos');
     menuProyectos.innerHTML += `<option id="list" value="${key}">${key}</option>`
 }
 
 // Sección Calculo de Interruptor Termomagnético principal 
 
+
 function restultMonofasica() {
-    const rMono = 'INSTALAR INTERRUPTOR TERMOMAGNETICO BIPOLAR 32AMP'
-    resultado.innerHTML = `<img class="imgResultado" src="../img/itm.png" alt="">  <p>${rMono}</p>`;
+    let rMono = 'INSTALAR INTERRUPTOR TERMOMAGNETICO BIPOLAR 32AMP'
+    resultado.innerHTML = `<img class="imgResultado" src="../img/itm.png" alt="">  <p id="itpResult">${rMono}</p>`;
+    itpResult = rMono;
+    console.log(itpResult);
 }
+monofasica.onclick = restultMonofasica;
 
 function resultTrifasica() {
-    const rTrif = 'INSTALAR INTERRUPTOR TERMOMAGNETICO TETRAPOLAR 32AMP'
-    resultado.innerHTML = `<img class="imgResultado" src="../img/ittetrawebp.webp" alt="">${rTrif}<p></p>`;
+    let rTrif = 'INSTALAR INTERRUPTOR TERMOMAGNETICO TETRAPOLAR 32AMP'
+    resultado.innerHTML = `<img class="imgResultado" src="../img/ittetrawebp.webp" alt=""><p id="itpResult">${rTrif}</p>`;
+    itpResult = rTrif;
+    console.log(itpResult);
 }
-
+trifasica.onclick = resultTrifasica
 
 
 function itpRegisto() {
     let nRegistro = document.getElementById('menuProyectos').value;
     let itp = {
         
-        resultado: resultado,
+        itpResult: itpResult,
+        
     }
     localStorage.setItem(nRegistro, JSON.stringify(itp))
-    console.log(nRegistro);
-    
+
+    //itp = JSON.parse(localStorage.getItem('itp'))
     
 }
+btnItpGuardar.onclick = itpRegisto
 
-console.log(nombreProyecto);
+
+
 
 
 
