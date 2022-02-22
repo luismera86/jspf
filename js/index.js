@@ -15,14 +15,14 @@ const btnTtrifasica = document.getElementById('btnTtrifasica')
 intp = '';
 
 const restultMonofasica = () => {
-    resultado.innerHTML = '<img class="imgResultado" src="../img/itm.png" alt="">  <p id="itpp">INSTALAR INTERRUPTOR TERMOMAGNETICO BIPOLAR 32AMP</p>';
+    resultado.innerHTML = '<img class="imgResultado" src="./img/itm.png" alt="">  <p id="itpp">INSTALAR INTERRUPTOR TERMOMAGNETICO BIPOLAR 32AMP</p>';
     intp = 'monofasica';
     
 }
 btnMonofasica.onclick = restultMonofasica;
 
 const resultTrifasica = () => {
-    resultado.innerHTML = '<img class="imgResultado" src="../img/ittetrawebp.webp" alt="">  <p id="itpp">INSTALAR INTERRUPTOR TERMOMAGNETICO TETRAPOLAR 32AMP</p>';
+    resultado.innerHTML = '<img class="imgResultado" src="./img/ittetrawebp.webp" alt="">  <p id="itpp">INSTALAR INTERRUPTOR TERMOMAGNETICO TETRAPOLAR 32AMP</p>';
     intp = 'trifasica';
     
 }
@@ -87,7 +87,7 @@ const respTrifasica = () => {
     }if (circuitos >60){
         cantid = '5';
     }
-    resultado1.innerHTML = '<img class="imgResultado" src="../img/idtetra.webp" alt="">'
+    resultado1.innerHTML = '<img class="imgResultado" src="./img/idtetra.webp" alt="">'
     let respuesta = 'DEBE INSTALAR' + ' ' + cantid + ' ' + 'INTERRUPTORES DIFERENCIAL TETRAPOLAR';
     resultado2.innerText = respuesta;
 }
@@ -104,7 +104,7 @@ const respMonofasica = () => {
     }if (circuitos >20){
         cantid = '5';
     }  
-    resultado1.innerHTML = '<img class="imgResultado" src="../img/idmono.webp" alt="">'
+    resultado1.innerHTML = '<img class="imgResultado" src="./img/idmono.webp" alt="">'
     let respuesta = 'DEBE INSTALAR' + ' ' + cantid + ' ' + 'INTERRUPTORES DIFERENCIAL BIPOLAR';
     resultado2.innerText = respuesta;
 }
