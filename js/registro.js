@@ -1,5 +1,6 @@
 
 const btnImprimir = document.getElementById('btnImprimir');
+const btnEliminar = document.getElementById('btnEliminar ');
 
 
 // Inserta los Nombres de los proyectos en una lista 
@@ -12,8 +13,8 @@ menuProyectos.innerHTML += `<option id="list" value="${key}">${key}</option>`
 }
 
 function generarDatos() {
-    poryecto = document.getElementById('menuProyectos').value;
-    p = JSON.parse(localStorage.getItem(poryecto));
+    proyecto = document.getElementById('menuProyectos').value;
+    p = JSON.parse(localStorage.getItem(proyecto));
     np = document.getElementById('np');
     ni = document.getElementById('ni');
     nt = document.getElementById('nt');
@@ -31,21 +32,16 @@ function generarDatos() {
     itmpc1.innerText = p.resultadol1;
     itmpc2.innerText = p.resultadol2;
     itmpc3.innerText = p.resultadol3;
+    
 }
 
 generarDatos();
 
-// Imprimir los datos 
+// Eliminar proyectos
 
-function imprim1(datosImprimir){
-    let printContents = document.getElementById('datosImprimir').innerHTML;
-            w = window.open();
-            w.document.write(printContents);
-            w.document.close(); // necessary for IE >= 10
-            w.focus(); // necessary for IE >= 10
-            w.print();
-            w.close();
-            return true;
+function eliminaProyceto() {
+    localStorage.removeItem(proyecto);
+    location.reload();
 }
 
-//btnImprimir.onclick = imprim1;
+    

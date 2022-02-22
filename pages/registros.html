@@ -14,7 +14,7 @@
         <div class="text-center mt-4 mb-5">
             <h2 class="titulo">LISTA DE MATERIALES NECESARIOS</h2>
             <h4 class="subtitulo">ELIJA PROYECTO</h4>
-            <select id="menuProyectos" onchange="generarDatos()"></select>
+            <select id="menuProyectos" onchange="generarDatos()" class="buttons mt-3"></select> <button id="btnEliminar" class="buttons mt-3" onclick="eliminaProyceto()">Eliminar</button>
         </div>
         <!-- Datos que se van a imprimir -->
         <div id="datosImprimir" class="imprimir">
@@ -41,14 +41,16 @@
                     <span id="itmpc3"></span>
                 </div>
             </div>
-            <div>
+            <div class="text-center">
                 <button id="btnImprimir" class="buttons mt-5" onclick="javascript:window.print()">IMPRIMIR</button>
-                <a href="../index.html"><button class="buttons">NUEVO PROYECTO</button></a>
+                <a href="../index.html"><button class="buttons mt-3">NUEVO PROYECTO</button></a>
             </div>
             
 
         </div>
     </div>
+
+
 
     <script src="../js/registro.js"></script>
 </body>

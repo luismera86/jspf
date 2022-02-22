@@ -1,9 +1,9 @@
 
-// // Datos de registro 
+// Datos de registro 
 
-// const nombreProyecto = document.getElementById('nombreProyecto').value;
-// const nombreUsuario = document.getElementById('nombreUsuario').value;
-// const telUsuario = document.getElementById('telUsuario').value;
+const nombreProyecto = document.getElementById('nombreProyecto').value;
+const nombreUsuario = document.getElementById('nombreUsuario').value;
+const telUsuario = document.getElementById('telUsuario').value;
 
 let datosImprimir = [];
 
@@ -148,15 +148,8 @@ const registrarDatos = () => {
     }
 
     localStorage.setItem(nombreProyecto, JSON.stringify(datos));
+    location.reload();
 }
 
 btnRegistro.onclick = registrarDatos;
 
-// Inserta los Nombres de los proyectos en una lista 
-
-for (let i = 0; i < localStorage.length; i++) {
-    key = localStorage.key(i);
-    valor = JSON.parse(localStorage.getItem(key))
-let menuProyectos = document.getElementById('menuProyectos');
-menuProyectos.innerHTML += `<option id="list" value="${key}">${key}</option>`
-}

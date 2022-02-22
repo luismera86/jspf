@@ -54,3 +54,15 @@ body{
    .subtitulo {display:none;}
    .buttons {display:none;}
    }
+
+
+   .cuadroRespuesta{
+      background-color: #ffff;
+      border-radius: 20PX;
+      height: 22rem;
+      border: solid 0.1rem #445595;
+  }
+
+  .imgResultado{
+   width: 150px;
+}
