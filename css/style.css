@@ -1,0 +1,56 @@
+*{
+   margin: 0;
+   padding: 0;
+   z-index: auto;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@500;600;700;800&display=swap');
+
+ /* font-family: 'Anton', sans-serif;
+    font-family: 'Poppins', sans-serif; */
+
+body{
+   font-family: 'Poppins', sans-serif;
+   font-weight: 700;
+   color: #445595;
+}
+
+.titulo{
+   font-family: 'Anton', sans-serif;
+   font-weight: 800;
+}
+
+.subtitulo{
+   font-family: 'Anton', sans-serif;
+   font-weight: 800;
+}
+
+
+
+.estructura{
+   background-image: url('../img/fondo.svg');
+   background-size: cover;
+
+}
+
+.buttons{
+   background-color: #6E7DAF;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    color: #ffff;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    text-shadow: 0px 4px 9px rgba(0, 0, 0, 0.25);
+    margin-left: 3rem;
+}
+
+.imprimir{
+   font-size: 1.2rem;
+}
+
+@media print {
+   #menuProyectos {display:none;}
+   .subtitulo {display:none;}
+   .buttons {display:none;}
+   }
