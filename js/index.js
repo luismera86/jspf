@@ -88,7 +88,7 @@ const respTrifasica = () => {
         cantid = '5';
     }
     resultado1.innerHTML = '<img class="imgResultado" src="./img/idtetra.webp" alt="">'
-    let respuesta = 'DEBE INSTALAR' + ' ' + cantid + ' ' + 'INTERRUPTORES DIFERENCIAL TETRAPOLAR';
+    let respuesta = 'DEBE INSTALAR' + ' ' + cantid + ' ' + 'INTERRUPTORES DIFERENCIAL TETRAPOLAR 40AMP';
     resultado2.innerText = respuesta;
 }
 
@@ -105,7 +105,7 @@ const respMonofasica = () => {
         cantid = '5';
     }  
     resultado1.innerHTML = '<img class="imgResultado" src="./img/idmono.webp" alt="">'
-    let respuesta = 'DEBE INSTALAR' + ' ' + cantid + ' ' + 'INTERRUPTORES DIFERENCIAL BIPOLAR';
+    let respuesta = 'DEBE INSTALAR' + ' ' + cantid + ' ' + 'INTERRUPTORES DIFERENCIAL BIPOLAR 40AMP';
     resultado2.innerText = respuesta;
 }
 
