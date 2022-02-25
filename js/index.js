@@ -17,6 +17,15 @@ intp = '';
 const restultMonofasica = () => {
     resultado.innerHTML = '<img class="imgResultado" src="./img/itm.png" alt="">  <p id="itpp">INSTALAR INTERRUPTOR TERMOMAGNETICO BIPOLAR 32AMP</p>';
     intp = 'monofasica';
+    Swal.fire({
+            icon: 'warning',
+            title: 'ATENCION!',
+            imageUrl: 'img/subte2x6.jpg',
+            imageWidth: '150px',
+            html: '<div>Recuerde que el cable del medidor debe venir con un diametro no menor a 6mm</div>' + '<div>Colores: Celeste y Marrón</div>',
+            confirmButtonText: 'ENTENDIDO',
+         })
+
     
 }
 btnMonofasica.onclick = restultMonofasica;
@@ -24,6 +33,15 @@ btnMonofasica.onclick = restultMonofasica;
 const resultTrifasica = () => {
     resultado.innerHTML = '<img class="imgResultado" src="./img/ittetrawebp.webp" alt="">  <p id="itpp">INSTALAR INTERRUPTOR TERMOMAGNETICO TETRAPOLAR 32AMP</p>';
     intp = 'trifasica';
+    Swal.fire({
+        icon: 'warning',
+        title: 'ATENCION!',
+        imageUrl: 'img/subte4x6.webp',
+        imageWidth: '150px',
+        html: '<div>Recuerde que el cable del medidor debe venir con un diametro no menor a 6mm</div>' + '<div>Colores: Celeste, Marrón, Negro y Rojo</div>',
+        confirmButtonText: 'ENTENDIDO',
+     })
+
     
 }
 
@@ -69,6 +87,13 @@ function calculoIdp() {
      }else if(intp === 'trifasica') {
          respTrifasica();
      }
+     Swal.fire({
+        icon: 'warning',
+        title: 'ATENCION!',
+        html: '<div>Recuerde que no debe conectar más de 5 Interruptores Termomagnéticos por Interruptor Dirferencial Bipolar</div>' + '<div>----------</div>' + '<div>No debe conectar más de 5 Interruptores Termomagnéticos en cada fase en un Interruptor Dirferencial Tetrapolar</div>',
+        confirmButtonText: 'ENTENDIDO',
+     })
+
 }
 
 btnCalcular.onclick = calculoIdp;
@@ -131,7 +156,10 @@ const list = () => {
 
 const btnRegistro = document.getElementById('btnRegistro');
 
+
+
 const registrarDatos = () => {
+    
     const nombreProyecto = document.getElementById('nombreProyecto').value;
     const nombreUsuario = document.getElementById('nombreUsuario').value;
     const telUsuario = document.getElementById('telUsuario').value;
@@ -146,9 +174,10 @@ const registrarDatos = () => {
         resultadol2: resultadol2.innerText,
         resultadol3: resultadol3.innerText,
     }
-
+    
     localStorage.setItem(nombreProyecto, JSON.stringify(datos));
     location.reload();
+    
 }
 
 btnRegistro.onclick = registrarDatos;
