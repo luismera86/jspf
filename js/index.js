@@ -5,7 +5,6 @@ const nombreProyecto = document.getElementById('nombreProyecto').value;
 const nombreUsuario = document.getElementById('nombreUsuario').value;
 const telUsuario = document.getElementById('telUsuario').value;
 
-let datosImprimir = [];
 
 // Calulo de interruptor termomagético principal 
 
