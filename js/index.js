@@ -39,35 +39,37 @@ const resultado1 = document.getElementById('resultado1');
 const resultado2 = document.getElementById('resultado2');
 
 
+/**
+ * !Cambiar los contadores a la sauma de circuitos y colocarlos luego del Interruptor Termomagnetico.
+ */
+
 
 const sumaCircuitos = () => {
     ++circuitos
     nCircuitos.innerText = circuitos;
-    if (circuitos > 0 ) {
-        btnResta.disabled = false;
-}
-}
+    circuitos > 0 ? btnResta.disabled = false : null;
+    }
+
 btnSuma.onclick = sumaCircuitos;
 
 const restaCircuitos = () => {
-        --circuitos
-        nCircuitos.innerText = circuitos;
-        if(circuitos <= 0) {
-            btnResta.disabled = true;
-        }
-}
+    --circuitos
+    nCircuitos.innerText = circuitos;
+    circuitos <= 0 ? btnResta.disabled = true : null;
+    }
+
 
 btnResta.onclick = restaCircuitos;
 
 
 function calculoIdp() {
 
-    if (intp === 'monofasica') {
-            
-        respMonofasica();
-     }else if(intp === 'trifasica') {
-         respTrifasica();
-     }
+        if (intp === 'monofasica') {
+                
+            respMonofasica();
+        }else if(intp === 'trifasica') {
+            respTrifasica();
+    }
 }
 
 btnCalcular.onclick = calculoIdp;
@@ -151,4 +153,19 @@ const registrarDatos = () => {
 }
 
 btnRegistro.onclick = registrarDatos;
+/**
+ * NO FUNCIONA PARA LEER UN OBJETO EN PARTICULAR
+ * const datos = [];
+function pruebaJSON() {
+    const url = '/data/datos.json';
+    fetch(url)
+        .then(response => response.json())
+        .then(resultado0 => console.log(resultado0))
+        .then(res => console.log(res))
+    
+}
+
+pruebaJSON()
+
+ */
 
