@@ -77,34 +77,24 @@ btnCalcular.onclick = calculoIdp;
 let circuitos = 0;
 
 const respTrifasica = () => {
-    if (circuitos <= 15){
-        cantid = '1';
-    } if (circuitos >15){
-        cantid = '2';
-    }if (circuitos >30){
-        cantid = '3';
-    }if (circuitos >45){
-        cantid = '4';
-    }if (circuitos >60){
-        cantid = '5';
-    }
+    circuitos <= 15 ? cantid = '1' : null;
+    circuitos >15 ? cantid = '2' : null;
+    circuitos >30 ? cantid = '3' : null;
+    circuitos >45 ? cantid = '4' : null;
+    circuitos >60 ? cantid = '5' : null;
+
     resultado1.innerHTML = '<img class="imgResultado" src="./img/idtetra.webp" alt="">'
     let respuesta = 'DEBE INSTALAR' + ' ' + cantid + ' ' + 'INTERRUPTORES DIFERENCIAL TETRAPOLAR 40AMP';
     resultado2.innerText = respuesta;
 }
 
 const respMonofasica = () => {
-    if (circuitos <= 5){
-        cantid = '1';
-    } if (circuitos >5){
-        cantid = '2';
-    }if (circuitos >10){
-        cantid = '3';
-    }if (circuitos >15){
-        cantid = '4';
-    }if (circuitos >20){
-        cantid = '5';
-    }  
+    circuitos <= 5 ? cantid = '1' : null;
+    circuitos >5 ? cantid = '2' : null;
+    circuitos >10 ? cantid = '3': null;
+    circuitos >15 ? cantid = '4' : null;
+    circuitos >20 ? cantid = '5' : null;
+
     resultado1.innerHTML = '<img class="imgResultado" src="./img/idmono.webp" alt="">'
     let respuesta = 'DEBE INSTALAR' + ' ' + cantid + ' ' + 'INTERRUPTORES DIFERENCIAL BIPOLAR 40AMP';
     resultado2.innerText = respuesta;
@@ -115,8 +105,7 @@ const respMonofasica = () => {
 const list = () => {
     let circuitosIluminacion = document.querySelector('#circuitosIluminación').value
     let circuitosTomacorrientes = document.querySelector('#ircuitosTomacorrientes').value;
-    let circuitosTomacorrientesEspeciales = document.querySelector('#circuitosTomacorrientesEspeciales').value;
-    
+    let circuitosTomacorrientesEspeciales = document.querySelecto('#circuitosTomacorrientesEspeciales').value;
     let resultadol1 = document.getElementById('resultadol1');
     let resultadol2 = document.getElementById('resultadol2');
     let resultadol3 = document.getElementById('resultadol3');    
@@ -153,19 +142,32 @@ const registrarDatos = () => {
 }
 
 btnRegistro.onclick = registrarDatos;
-/**
- * NO FUNCIONA PARA LEER UN OBJETO EN PARTICULAR
- * const datos = [];
+
+
+datos = [];
 function pruebaJSON() {
-    const url = '/data/datos.json';
+    const url = '../data/datos.json';
     fetch(url)
         .then(response => response.json())
-        .then(resultado0 => console.log(resultado0))
-        .then(res => console.log(res))
-    
+        .then((resp) => {
+            resp.forEach((dato) => {
+                
+                console.log(dato);
+                datos.push(dato);
+            })
+        })
 }
 
 pruebaJSON()
 
- */
+
+console.log(datos);
+
+
+
+
+
+
+
+
 

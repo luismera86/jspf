@@ -1,10 +1,10 @@
 [
     {
-    "id" : 1,
-    "nombre" : "Interruptor Termomagnetico",
-    "tipo" : "Bipolar",
-    "amp" : "32Amp",
-    "cable" : "Diametro de cable mínimo: 6mm"
+        "id" : 1,
+        "nombre" : "Interruptor Termomagnetico",
+        "tipo" : "Bipolar",
+        "amp" : "32Amp",
+        "cable" : "Diametro de cable mínimo: 6mm"
     },
     {
         "id" : 2,
