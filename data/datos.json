@@ -1,0 +1,49 @@
+[
+    {
+        "id" : 1,
+        "nombre" : "Interruptor Termomagnetico",
+        "tipo" : "Bipolar",
+        "amp" : "32Amp",
+        "cable" : "Diametro de cable mínimo: 6mm"
+    },
+    {
+        "id" : 2,
+        "nombre" : "Interruptor Termomagnetico",
+        "tipo" : "Tetrapolar",
+        "amp" : "32Amp",
+        "cable" : "Diametro de cable mínimo: 6mm"
+    },
+    {
+        "id" : 3,
+        "nombre" : "Interruptor Diferencial",
+        "tipo" : "Bipolar",
+        "amp" : "40Amp"
+    },
+    {
+        "id" : 4,
+        "nombre" : "Interruptor Diferencial",
+        "tipo" : "Tetrapolar",
+        "amp" : "40Amp"
+    },
+    {
+        "id" : 5,
+        "nombre" : "Interruptor Termomagnetico",
+        "tipo" : "Bipolar",
+        "amp" : "10Amp",
+        "cable" : "Diametro de cable mínimo: 1,5mm"
+    },
+    {
+        "id" : 6,
+        "nombre" : "Interruptor Termomagnetico",
+        "tipo" : "Bipolar",
+        "amp" : "16Amp",
+        "cable" : "Diametro de cable mínimo: 2,5mm"
+    },
+    {
+        "id" : 7,
+        "nombre" : "Interruptor Termomagnetico",
+        "tipo" : "Bipolar",
+        "amp" : "20Amp",
+        "cable" : "Diametro de cable mínimo: 4mm"
+    }
+]

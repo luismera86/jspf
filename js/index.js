@@ -5,42 +5,57 @@ const nombreProyecto = document.getElementById('nombreProyecto').value;
 const nombreUsuario = document.getElementById('nombreUsuario').value;
 const telUsuario = document.getElementById('telUsuario').value;
 
-let datosImprimir = [];
 
 // Calulo de interruptor termomagético principal 
 
 const btnMonofasica = document.getElementById('btnMonofasica')
 const btnTtrifasica = document.getElementById('btnTtrifasica')
 
+
+
+// En esta sección se incluye la lectura del archivo datos.json
+
+const urlJson = '../data/datos.json';
+
 intp = '';
 
 const restultMonofasica = () => {
-    resultado.innerHTML = '<img class="imgResultado" src="./img/itm.png" alt="">  <p id="itpp">INSTALAR INTERRUPTOR TERMOMAGNETICO BIPOLAR 32AMP</p>';
-    intp = 'monofasica';
-    Swal.fire({
+    fetch(urlJson)
+    .then(respuesta => respuesta.json())
+    .then((result) => {
+        resultado.innerHTML = `<img class="imgResultado" src="./img/itm.png" alt="">  <p id="itpp">Instalar ${result[0].nombre} ${result[0].tipo} de ${result[0].amp} </p>`;
+        intp = 'monofasica';
+        Swal.fire({
             icon: 'warning',
             title: 'ATENCION!',
             imageUrl: 'img/subte2x6.jpg',
             imageWidth: '150px',
             html: '<div>Recuerde que el cable del medidor debe venir con un diametro no menor a 6mm</div>' + '<div>Colores: Celeste y Marrón</div>',
             confirmButtonText: 'ENTENDIDO',
-         })
+        })
 
+    })    
     
 }
 btnMonofasica.onclick = restultMonofasica;
 
 const resultTrifasica = () => {
-    resultado.innerHTML = '<img class="imgResultado" src="./img/ittetrawebp.webp" alt="">  <p id="itpp">INSTALAR INTERRUPTOR TERMOMAGNETICO TETRAPOLAR 32AMP</p>';
-    intp = 'trifasica';
-    Swal.fire({
-        icon: 'warning',
-        title: 'ATENCION!',
-        imageUrl: 'img/subte4x6.webp',
-        imageWidth: '150px',
-        html: '<div>Recuerde que el cable del medidor debe venir con un diametro no menor a 6mm</div>' + '<div>Colores: Celeste, Marrón, Negro y Rojo</div>',
-        confirmButtonText: 'ENTENDIDO',
-     })
+    fetch(urlJson)
+    .then(respuesta => respuesta.json())
+    .then((result) => {
+        resultado.innerHTML = `<img class="imgResultado" src="./img/ittetrawebp.webp" alt="">  <p id="itpp">Instalar ${result[1].nombre} ${result[1].tipo} de ${result[1].amp} </p>`;
+        intp = 'trifasica';
+        Swal.fire({
+            icon: 'warning',
+            title: 'ATENCION!',
+            imageUrl: 'img/subte4x6.webp',
+            imageWidth: '150px',
+            html: '<div>Recuerde que el cable del medidor debe venir con un diametro no menor a 6mm</div>' + '<div>Colores: Celeste, Marrón, Negro y Rojo</div>',
+            confirmButtonText: 'ENTENDIDO',
+        })
+    
+    })    
+
 
     
 }
@@ -84,15 +99,15 @@ function calculoIdp() {
     if (intp === 'monofasica') {
             
         respMonofasica();
-     }else if(intp === 'trifasica') {
-         respTrifasica();
-     }
-     Swal.fire({
+    }else if(intp === 'trifasica') {
+        respTrifasica();
+    }
+    Swal.fire({
         icon: 'warning',
         title: 'ATENCION!',
         html: '<div>Recuerde que no debe conectar más de 5 Interruptores Termomagnéticos por Interruptor Dirferencial Bipolar</div>' + '<div>----------</div>' + '<div>No debe conectar más de 5 Interruptores Termomagnéticos en cada fase en un Interruptor Dirferencial Tetrapolar</div>',
         confirmButtonText: 'ENTENDIDO',
-     })
+    })
 
 }
 
@@ -101,34 +116,24 @@ btnCalcular.onclick = calculoIdp;
 let circuitos = 0;
 
 const respTrifasica = () => {
-    if (circuitos <= 15){
-        cantid = '1';
-    } if (circuitos >15){
-        cantid = '2';
-    }if (circuitos >30){
-        cantid = '3';
-    }if (circuitos >45){
-        cantid = '4';
-    }if (circuitos >60){
-        cantid = '5';
-    }
+    circuitos <= 15 ? cantid = '1' : null;
+    circuitos >15 ? cantid = '2' : null;
+    circuitos >30 ? cantid = '3' : null;
+    circuitos >45 ? cantid = '4' : null;
+    circuitos >60 ? cantid = '5' : null;
+
     resultado1.innerHTML = '<img class="imgResultado" src="./img/idtetra.webp" alt="">'
     let respuesta = 'DEBE INSTALAR' + ' ' + cantid + ' ' + 'INTERRUPTORES DIFERENCIAL TETRAPOLAR 40AMP';
     resultado2.innerText = respuesta;
 }
 
 const respMonofasica = () => {
-    if (circuitos <= 5){
-        cantid = '1';
-    } if (circuitos >5){
-        cantid = '2';
-    }if (circuitos >10){
-        cantid = '3';
-    }if (circuitos >15){
-        cantid = '4';
-    }if (circuitos >20){
-        cantid = '5';
-    }  
+    circuitos <= 5 ? cantid = '1' : null;
+    circuitos >5 ? cantid = '2' : null;
+    circuitos >10 ? cantid = '3': null;
+    circuitos >15 ? cantid = '4' : null;
+    circuitos >20 ? cantid = '5' : null;
+
     resultado1.innerHTML = '<img class="imgResultado" src="./img/idmono.webp" alt="">'
     let respuesta = 'DEBE INSTALAR' + ' ' + cantid + ' ' + 'INTERRUPTORES DIFERENCIAL BIPOLAR 40AMP';
     resultado2.innerText = respuesta;
