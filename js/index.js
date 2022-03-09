@@ -15,7 +15,7 @@ const btnTtrifasica = document.getElementById('btnTtrifasica')
 
 // En esta sección se incluye la lectura del archivo datos.json
 
-const urlJson = '../data/datos.json';
+const urlJson = 'data/datos.json';
 
 intp = '';
 
