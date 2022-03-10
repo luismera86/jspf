@@ -15,14 +15,15 @@ const btnTtrifasica = document.getElementById('btnTtrifasica')
 
 // En esta sección se incluye la lectura del archivo datos.json
 
-const urlJson = '/jspf/data/datos.json';
+const urlJson = 'data/datos.json';
 
 intp = '';
 
-const restultMonofasica = () => {
+btnMonofasica.addEventListener('click', () => {
     fetch(urlJson)
     .then(respuesta => respuesta.json())
     .then((result) => {
+    
         resultado.innerHTML = `<img class="imgResultado" src="./img/itm.png" alt="">  <p id="itpp">Instalar ${result[0].nombre} ${result[0].tipo} de ${result[0].amp} </p>`;
         intp = 'monofasica';
         Swal.fire({
@@ -36,10 +37,11 @@ const restultMonofasica = () => {
 
     })    
     
-}
-btnMonofasica.onclick = restultMonofasica;
+})
 
-const resultTrifasica = () => {
+
+
+btnTtrifasica.addEventListener('click', () => {
     fetch(urlJson)
     .then(respuesta => respuesta.json())
     .then((result) => {
@@ -55,65 +57,113 @@ const resultTrifasica = () => {
         })
     
     })    
-
-
     
-}
+})
 
-btnTtrifasica.onclick = resultTrifasica;
-
-// Calculo de Interruptor Diferencial 
+// Calculo de interruptores por circutio
 
 
-const nCircuitos = document.getElementById('nCircuitos');
-const btnSuma = document.getElementById('btnSuma');
-const btnResta = document.getElementById('btnResta');
+const nCircuitosIl = document.getElementById('nCircuitosIl');
+const btnSumaIl = document.getElementById('btnSumaIl');
+const btnRestaIl = document.getElementById('btnRestaIl');
+const nCircuitosTc = document.getElementById('nCircuitosTc');
+const btnSumaTc = document.getElementById('btnSumaTc');
+const btnRestaTc = document.getElementById('btnRestaTc');
+const nCircuitosTce = document.getElementById('nCircuitosTce');
+const btnSumaTce = document.getElementById('btnSumaTce');
+const btnRestaTce = document.getElementById('btnRestaTce');
 const btnCalcular = document.getElementById('btnCalcular');
 const resultado1 = document.getElementById('resultado1');
 const resultado2 = document.getElementById('resultado2');
+const resultadol1 = document.getElementById('resultadol1');
+const resultadol2 = document.getElementById('resultadol2');
+const resultadol3 = document.getElementById('resultadol3');   
+const btnCalcularIt = document.getElementById('btnCalcularIt');
 
 
+let circuitosIl = 0;
+let circuitosTc = 0;
+let circuitosTce = 0;
 
-const sumaCircuitos = () => {
-    ++circuitos
-    nCircuitos.innerText = circuitos;
-    if (circuitos > 0 ) {
-        btnResta.disabled = false;
-}
-}
-btnSuma.onclick = sumaCircuitos;
+btnSumaIl.addEventListener('click', () => {
+    ++circuitosIl
+    nCircuitosIl.innerText = circuitosIl;
+    circuitosIl > 0 ? btnRestaIl.disabled = false : null;
+})
 
-const restaCircuitos = () => {
-        --circuitos
-        nCircuitos.innerText = circuitos;
-        if(circuitos <= 0) {
-            btnResta.disabled = true;
-        }
-}
-
-btnResta.onclick = restaCircuitos;
-
-
-function calculoIdp() {
-
-    if (intp === 'monofasica') {
-            
-        respMonofasica();
-    }else if(intp === 'trifasica') {
-        respTrifasica();
+btnRestaIl.addEventListener('click', () => {
+    --circuitosIl
+    nCircuitosIl.innerText = circuitosIl;
+    circuitosIl <= 0 ? btnRestaIl.disabled = true : null;
     }
+)
+
+
+btnSumaTc.addEventListener('click', () => {
+    ++circuitosTc
+    nCircuitosTc.innerText = circuitosTc;
+    circuitosTc > 0 ? btnRestaTc.disabled = false : null;
+    }
+)
+
+btnRestaTc.addEventListener('click', () => {
+    --circuitosTc
+    nCircuitosTc.innerText = circuitosTc;
+    circuitosTc <= 0 ? btnRestaTc.disabled = true : null;
+    }
+)
+
+
+btnSumaTce.addEventListener('click', () => {
+    ++circuitosTce
+    nCircuitosTce.innerText = circuitosTce;
+    circuitosTce > 0 ? btnRestaTce.disabled = false : null;
+    }
+)
+
+btnRestaTce.addEventListener('click', () => {
+    --circuitosTce
+    nCircuitosTce.innerText = circuitosTce;
+    circuitosTce <= 0 ? btnRestaTce.disabled = true : null;
+    }
+)
+
+let circuitos = 0;
+
+btnCalcularIt.addEventListener('click', () => {
+
+    circuitosIl > 0 ? resultadol1.innerText = `${circuitosIl} Interruptores Termomagnéticos Bipolar de 10 AMP` : null;
+    circuitosTc > 0 ? resultadol2.innerText = `${circuitosTc} Interruptores Termomagnéticos Bipolar de 16 AMP` : null;
+    circuitosTce > 0 ? resultadol3.innerText = `${circuitosTce} Interruptores Termomagnéticos Bipolar de 20 AMP` : null;
+    
+    circuitos = circuitosIl + circuitosTc + circuitosTce
+
+    console.log(circuitos);
+
+})
+
+// Calculo de Interruptor Diferencial 
+
+btnCalcular.addEventListener('click', () => {
+    intp === 'monofasica' ? respMonofasica() : null;
+    intp === 'trifasica' ? respTrifasica() : null;
+    intp === '' ? 
+    Swal.fire({
+        icon: 'warning',
+        title: 'ATENCION!',
+        html: '<div>Debe seleccionar un tipo de Interruptor Principal </div>',
+        confirmButtonText: 'ENTENDIDO',
+    }) :
     Swal.fire({
         icon: 'warning',
         title: 'ATENCION!',
         html: '<div>Recuerde que no debe conectar más de 5 Interruptores Termomagnéticos por Interruptor Dirferencial Bipolar</div>' + '<div>----------</div>' + '<div>No debe conectar más de 5 Interruptores Termomagnéticos en cada fase en un Interruptor Dirferencial Tetrapolar</div>',
         confirmButtonText: 'ENTENDIDO',
-    })
+    });
 
-}
+})
 
-btnCalcular.onclick = calculoIdp;
 
-let circuitos = 0;
 
 const respTrifasica = () => {
     circuitos <= 15 ? cantid = '1' : null;
@@ -123,7 +173,7 @@ const respTrifasica = () => {
     circuitos >60 ? cantid = '5' : null;
 
     resultado1.innerHTML = '<img class="imgResultado" src="./img/idtetra.webp" alt="">'
-    let respuesta = 'DEBE INSTALAR' + ' ' + cantid + ' ' + 'INTERRUPTORES DIFERENCIAL TETRAPOLAR 40AMP';
+    let respuesta = `DEBE INSTALAR ${cantid} INTERRUPTORES DIFERENCIAL BIPOLAR 40AMP`;
     resultado2.innerText = respuesta;
 }
 
@@ -134,36 +184,18 @@ const respMonofasica = () => {
     circuitos >15 ? cantid = '4' : null;
     circuitos >20 ? cantid = '5' : null;
 
-    resultado1.innerHTML = '<img class="imgResultado" src="./img/idmono.webp" alt="">'
-    let respuesta = 'DEBE INSTALAR' + ' ' + cantid + ' ' + 'INTERRUPTORES DIFERENCIAL BIPOLAR 40AMP';
+    resultado1.innerHTML = '<img class="imgResultado" src="./img/idmono.webp" alt="">';
+    let respuesta = `DEBE INSTALAR ${cantid} INTERRUPTORES DIFERENCIAL BIPOLAR 40AMP`;
     resultado2.innerText = respuesta;
 }
 
-// Calculo de interruptores por circutio
-
-const list = () => {
-    let circuitosIluminacion = document.querySelector('#circuitosIluminación').value
-    let circuitosTomacorrientes = document.querySelector('#ircuitosTomacorrientes').value;
-    let circuitosTomacorrientesEspeciales = document.querySelector('#circuitosTomacorrientesEspeciales').value;
-    
-    let resultadol1 = document.getElementById('resultadol1');
-    let resultadol2 = document.getElementById('resultadol2');
-    let resultadol3 = document.getElementById('resultadol3');    
-
-    resultadol1.innerText = `${circuitosIluminacion} Interruptores Termomagnéticos Bipolar de 10 AMP`;
-    resultadol2.innerText = `${circuitosTomacorrientes} Interruptores Termomagnéticos Bipolar de 16 AMP`;
-    resultadol3.innerText = `${circuitosTomacorrientesEspeciales} Interruptores Termomagnéticos Bipolar de 20 AMP`;
-
-
-}
 
 // Registro de los datos 
 
 const btnRegistro = document.getElementById('btnRegistro');
 
 
-
-const registrarDatos = () => {
+btnRegistro.addEventListener('click', () => {
     
     const nombreProyecto = document.getElementById('nombreProyecto').value;
     const nombreUsuario = document.getElementById('nombreUsuario').value;
@@ -183,7 +215,6 @@ const registrarDatos = () => {
     localStorage.setItem(nombreProyecto, JSON.stringify(datos));
     location.reload();
     
-}
+} )
 
-btnRegistro.onclick = registrarDatos;
 
