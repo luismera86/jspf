@@ -132,9 +132,10 @@ let circuitos = 0;
 
 btnCalcularIt.addEventListener('click', () => {
 
-    circuitosIl > 0 ? resultadol1.innerText = `${circuitosIl} Interruptores Termomagnéticos Bipolar de 10 AMP` : null;
-    circuitosTc > 0 ? resultadol2.innerText = `${circuitosTc} Interruptores Termomagnéticos Bipolar de 16 AMP` : null;
-    circuitosTce > 0 ? resultadol3.innerText = `${circuitosTce} Interruptores Termomagnéticos Bipolar de 20 AMP` : null;
+    circuitosIl > 0 ? resultadol1.innerText = `${circuitosIl} Interruptores Termomagnéticos Bipolar de 10 AMP` : resultadol1.innerText = '';
+    circuitosTc > 0 ? resultadol2.innerText = `${circuitosTc} Interruptores Termomagnéticos Bipolar de 16 AMP` : resultadol2.innerText = '';
+    circuitosTce > 0 ? resultadol3.innerText = `${circuitosTce} Interruptores Termomagnéticos Bipolar de 20 AMP` : resultadol3.innerText = '';
+    
     
     circuitos = circuitosIl + circuitosTc + circuitosTce
 
@@ -162,8 +163,6 @@ btnCalcular.addEventListener('click', () => {
     });
 
 })
-
-
 
 const respTrifasica = () => {
     circuitos <= 15 ? cantid = '1' : null;
