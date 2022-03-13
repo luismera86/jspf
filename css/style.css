@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    z-index: auto;
+}
+ 
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@500;600;700;800&display=swap');
+ 
+ /* font-family: 'Anton', sans-serif;
+     font-family: 'Poppins', sans-serif; */
+ 
+body{
+    font-family: 'Anton', sans-serif;
+    font-weight: 700;
+    color: #2d418a;
+}
+.fondo {
+    background-image: url(/img/fondo2.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.texto-bordes {
+    font-family: 'Anton', sans-serif;
+    -webkit-text-stroke: 1px #445595;;
+    text-shadow: 2px 2px 20px #2d418a;;
+}
+
+.boton{
+    background-color: #445595;
+}
+
+.cuadroRespuesta{
+    background-color: #ffff;
+    border-radius: 20PX;
+    height: 22rem;
+    border: solid 0.1rem #445595;
+}
