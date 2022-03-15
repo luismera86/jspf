@@ -254,11 +254,9 @@ btnRegistro.addEventListener('click', () => {
     }
     Swal.fire({
         title: 'LOS DATOS FUERON REGISTRADOS CON EXITO',
-        text: 'PUEDE ACCEDER E IMPRIMIR SUS PROYECTOS EN EL MENU PRINCIPAL EN "LISTA DE PROYECTOS"',
         confirmButtonText: 'ENTENDIDO',
     }).then((result) => { 
-        
-        location.reload();
+        window.location.href = '../pages/registros.html';
     
     })
     
