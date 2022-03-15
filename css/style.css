@@ -36,3 +36,27 @@ body{
     height: 22rem;
     border: solid 0.1rem #445595;
 }
+
+.imgResultado{
+    width: 150px;
+}
+
+.pregunta{
+    font-family: 'Anton', sans-serif;
+    font-weight: 700;
+    color: #2d418a;
+ }
+ .titulo{
+    font-family: 'Anton', sans-serif;
+    font-weight: 800;
+ }
+
+ .imprimir{
+    font-size: 1.2rem;
+ }
+ 
+ @media print {
+    #menuProyectos {display:none;}
+    .subtitulo {display:none;}
+    .boton {display:none;}
+    }

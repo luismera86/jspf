@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,37 +11,107 @@
 </head>
 <!-- Datos del usuario -->
 <body class="fondo">
-    <div id="datosUsuario" class="container d-flex flex-column col-sm-12 col-lg-6 mt-5 d-none wow animate__animated  animate__backInRight">
-        <h1 class=" texto-bordes wow animate__animated ">CALCULO DE TABLERO ELECTRICO</h1>
+    <div id="datosUsuario" class="container d-flex flex-column col-sm-12 col-lg-6 mt-5">
+        <h1 class=" texto-bordes wow animate__animated text-center">CALCULO DE TABLERO ELECTRICO</h1>
         <form class="d-flex flex-column">            
             <label class="form-label " for="">Nombre del proyecto</label>
             <input id="nombreProyecto" class="form-control shadow" type="text">
             <label class="form-label" for="">Nombre del instalador</label>
-            <input id="nombreInstalador" class="form-control shadow" type="text">
+            <input id="nombreUsuario" class="form-control shadow" type="text">
             <label class="form-label" for="">Teléfono</label>
-            <input id="usuarioTel" class="form-control shadow" type="number">
+            <input id="telUsuario" class="form-control shadow" type="number">
         </form>
-        <button id="btnContinuar1" class="btn btn-dark shadow mt-4 d-inline boton ">CONTINUAR</button>
+        <button id="btnContinuarItp" class="btn btn-dark shadow mt-4 d-inline boton ">CONTINUAR REGISTRO</button>
+        <a href="/pages/registros.html" class=""><button id="x" class="btn btn-dark shadow mt-4 boton w-100" type="button">LISTA DE PROYECTOS </button>
+        </a>
+
     </div>
     <!-- Selección del interruptor principal -->
-    <div class="container mt-5">
+    <div id="itp" class="container mt-5 d-none d-none">
         <div class="row">
             <h2 class="texto-bordes">SELECCINE EL TIPO DE INSTALACION QUE POSEE EN EL DOMICILIO</h2>
             <div class="d-flex flex-column col-lg-3">
                 <button id="btnMonofasica" class="btn btn-dark boton mt-5">MONOFASICA</button>
                 <button id="btnTtrifasica" class="btn btn-dark boton mt-5">TRIFASICA</button>
             </div>
-            <div class="cuadroRespuesta col-lg-7 ms-5"></div>
+            <div id="resultado" class="cuadroRespuesta col-lg-7 mt-3 ms-2 me-2 col d-flex flex-column justify-content-center align-items-center text-center"></div>
         </div>
-            
+        <div class="d-flex justify-content-between mt-5">
+            <button id="btnVolverDatoUsuario" class="btn btn-dark shadow mt-4 d-inline boton ">VOLVER</button>
+            <button id="btnContinuarCircuitos" class="btn btn-dark shadow mt-4 d-inline boton ">CONTINUAR</button>
         </div>
+    </div>
 
+    <!-- Calculo de circuitos  -->
+    <div id="circuitosId" class=" container  estructura d-none">
+        <h2 class="titulo mt-3">CALCULAR INTERRUPTOR TERMOMAGNETICO POR CIRCUITO</h2>
+        <div class="container d-flex flex-lg-row flex-column ">
+            <div class="d-flex flex-column col-lg-6 mt-3">
+                <h5 class="text-center mt-2 pregunta">¿CUANTOS CIRCUITOS DE ILUMINACION TIENE LA INSTALACION?</h5>
+                <div class="d-flex flex-row justify-content-around mt-3">
+                    <button id="btnSumaIl" class="btn btn-dark shadow w-25 boton">+</button>
+                    <h2 id="nCircuitosIl" class="text-center">0</h2>
+                    <button id="btnRestaIl" class="btn btn-dark shadow w-25 boton">-</button>
+                </div>
+                <h5 class="text-center mt-3 pregunta">¿CUANTOS CIRCUITOS DE TOMACORRIENTES TIENE LA INSTALACION?</h5>
+                <div class="d-flex flex-row justify-content-around mt-3">
+                    <button id="btnSumaTc" class="btn btn-dark shadow w-25 boton">+</button>
+                    <h2 id="nCircuitosTc" class="text-center">0</h2>
+                    <button id="btnRestaTc" class="btn btn-dark shadow w-25 boton">-</button>
+                </div>
+                <h5 class="text-center mt-3 pregunta">¿CUANTOS CIRCUITOS DE TOMACORRIENTES ESPECIALES TIENE LA INSTALACION?</h5>
+                <div class="d-flex flex-row justify-content-around mt-3">
+                    <button id="btnSumaTce" class="btn btn-dark shadow w-25 boton">+</button>
+                    <h2 id="nCircuitosTce" class="text-center">0</h2>
+                    <button id="btnRestaTce" class="btn btn-dark shadow w-25 boton">-</button>
+                </div>
+                <button id="btnCalcularIt" class="btn btn-dark shadow boton mt-5 mb-5">CALCULAR</button>
+            </div>
+            <div class="cuadroRespuesta col-12 col-lg-6 mt-lg-5 ms-lg-4 d-flex flex-column justify-content-center align-items-center text-centert p-2">
+                <h5 id="resultadol1" class="mt-4"></h5>
+                <h5 id="resultadol2" class="mt-2"></h5>
+                <h5 id="resultadol3" class="mt-2"></h5>
+            </div>
+        </div>
+        <div class=" d-flex justify-content-between  col-lg-12 ms-lg-5 mb-lg-4">
+            <button id="btnVolverItp" class="btn btn-dark shadow mt-4 d-inline boton ">VOLVER</button>
+            <button id="btnContinuarIdpResult" class="btn btn-dark shadow mt-4 d-inline boton ">CONTINUAR</button>
+        </div>
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <!-- Calulo de Interruptor Diferencial principal -->
+
+        <div id="idpResult" class=" container mt-5 mb-5 d-none">
+            <div class="row">
+                <div class="col text-center align-items-center">
+                    <h2 class="titulo mt-3">CALCULAR INTERRUPTOR DIFERENCIAL PRINCIPAL</h2>
+                </div>
+            </div>
+            <div class="row container">
+                <div class="d-flex flex-column col-sm-12 col-lg-6 mt-3">
+                    <button id="btnCalcular" class="boton btn btn-dark mt-5">CALCULAR</button>
+                </div>
+                <div class="cuadroRespuesta col-sm-12 col-lg-5 mt-3 ms-2 d-flex flex-column justify-content-center align-items-center text-center">
+                    <div id="resultado1"></div>
+                    <h4 id="resultado2"></h4>
+                </div>
+            </div>
+            <div class=" d-flex justify-content-between  col-lg-12 ms-lg-5 mb-lg-4">
+                <button id="btnVolverCircuitosId" class="btn btn-dark shadow mt-4 d-inline boton ">VOLVER</button>
+                <button id="btnRegistro" class="btn btn-dark shadow mt-4 d-inline boton ">REGISTRAR DATOS</button>
+            </div>
+    
+        </div>
+        
+
+        
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="/js/wow.min.js"></script>
               <!-- <script>
               new WOW().init();
               </script> -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/js/index.js"></script>
 </body>
 </html>
