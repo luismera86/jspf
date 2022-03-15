@@ -15,7 +15,7 @@ body{
     color: #2d418a;
 }
 .fondo {
-    background-image: url(/img/fondo2.jpg);
+    background-image: url(./img/fondo2.jpg);
     background-size: cover;
     background-attachment: fixed;
 }
