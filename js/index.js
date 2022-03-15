@@ -26,7 +26,7 @@ btnContinuarCircuitos.addEventListener('click', () => {
 const btnVolverDatoUsuario = document.getElementById('btnVolverDatoUsuario');
 const btnMonofasica = document.getElementById('btnMonofasica');
 const btnTtrifasica = document.getElementById('btnTtrifasica');
-const urlJson = '/jspf/data/datos.json';
+const urlJson = '../data/datos.json';
 
 /**
  * En esta sección se utiliza de el fetch para cumplir con lo solicitado en el trabajo final y demostrar los conocimientos aprendidos en clase, ya que en este proyecto no hace falta utilizarlos.
