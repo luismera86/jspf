@@ -19,7 +19,7 @@ btnContinuarCircuitos.addEventListener('click', () => {
     itp.classList.add('d-none');
     circuitosId.classList.add('animate__animated', 'animate__backInRight');
     circuitosId.classList.remove('d-none');
- })
+})
 
 // Elegir interruptor termomagnetico principal 
 
@@ -263,3 +263,4 @@ btnRegistro.addEventListener('click', () => {
     localStorage.setItem(nombreProyecto, JSON.stringify(datos));
     
 } )
+
